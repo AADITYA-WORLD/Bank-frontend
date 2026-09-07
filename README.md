@@ -1,16 +1,54 @@
-# React + Vite
+# Bank Ledger — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Tailwind frontend for a double-entry ledger banking backend. Built to practice real-world frontend patterns: protected routing, global auth state, form validation, and API integration.
 
-Currently, two official plugins are available:
+## Live Demo
+- App: https://bank-frontend-peach.vercel.app
+- Backend API: https://bank-ledger-backend-0bzh.onrender.com
+- Backend repo: https://github.com/AADITYA-WORLD/bank-ledger-backend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- JWT cookie-based authentication (login, register, logout)
+- Protected routes (redirect to login if not authenticated)
+- Role-based route access (admin-only pages)
+- Live balance dashboard with one-time bonus claim
+- Send money flow — recipient lookup by email, confirmation step, idempotent transfers
+- Paginated transaction history with credit/debit direction
+- Admin panel — transfer from the system reserve account to any user
+- Fully responsive — collapsible sidebar navigation on mobile
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React (Vite)
+- Tailwind CSS
+- React Router
+- React Hook Form
+- Axios
+- react-hot-toast
+- lucide-react
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+1. Install dependencies:
+
+npm install
+
+2. Copy `.env.example` to `.env` and set `VITE_API_URL` to your backend URL.
+3. Run the dev server:
+
+npm run dev
+
+
+## Folder Structure
+
+src/
+├── api/ # Axios instance + API call functions, grouped by resource
+├── components/ # Reusable UI (Navbar, ProtectedRoute)
+├── context/ # AuthContext - global auth state
+├── pages/ # Route-level pages
+
+
+## Notes
+
+This is a companion frontend to a [double-entry ledger backend](https://github.com/AADITYA-WORLD/bank-ledger-backend) — see that repo for details on how balances are derived from ledger entries rather than stored directly.
